@@ -10,6 +10,12 @@
   <meta property="og:description" content="Staff Platform Engineer with 8.5+ years building resilient, scalable systems at enterprise scale." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://pansachin.github.io" />
+  <meta property="og:image" content="https://pansachin.github.io/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://pansachin.github.io/og-image.svg" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -118,16 +124,36 @@
     }
 
     /* SECTIONS */
-    section { padding: 5rem 1.5rem 3rem; }
+    section { padding: 3.5rem 1.5rem 2rem; }
     .container { max-width: var(--max-width); margin: 0 auto; }
 
     /* HERO */
     .hero {
-      min-height: 100vh;
+      min-height: 85vh;
       display: flex; align-items: center;
       padding-top: 4rem;
     }
-    .hero-content { width: 100%; }
+    .hero-content {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+    .hero-text { flex: 1; }
+    .hero-avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 4px var(--bg), 0 0 0 6px var(--accent);
+    }
     .hero-label {
       font-family: var(--font-mono);
       font-size: 0.9rem;
@@ -354,6 +380,27 @@
     .oss-card:hover { background: var(--bg-card-hover); transform: translateY(-2px); }
     .oss-card h4 { font-size: 1rem; margin-bottom: 0.35rem; }
     .oss-card p { color: var(--text-secondary); font-size: 0.88rem; }
+    .oss-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+    .oss-meta span { display: flex; align-items: center; gap: 0.3rem; }
+    .oss-stars { color: #e3b341; }
+    .oss-contrib-type {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-family: var(--font-mono);
+    }
 
     /* PHILOSOPHY */
     .philosophy-grid {
@@ -393,6 +440,17 @@
       border-top: 1px solid var(--border);
     }
 
+    /* SCROLL ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* MOBILE */
     @media (max-width: 640px) {
       .hamburger { display: block; }
@@ -408,9 +466,12 @@
         gap: 0.75rem;
       }
       nav .nav-links.open { display: flex; }
+      .hero-content { flex-direction: column-reverse; text-align: center; gap: 1.5rem; }
+      .hero-avatar { width: 120px; height: 120px; font-size: 2.5rem; }
+      .hero-links { justify-content: center; }
       .hero h1 { font-size: 2rem; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      section { padding: 3.5rem 1.25rem 2rem; }
+      section { padding: 2.5rem 1.25rem 1.5rem; }
     }
   </style>
 </head>
@@ -436,20 +497,23 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container hero-content">
-      <p class="hero-label">Staff Software Engineer</p>
-      <h1>Hi, I'm <span class="gradient">Sachin Prasad</span></h1>
-      <p>I build resilient, scalable platform infrastructure at enterprise scale. 8.5+ years specializing in Go, Kubernetes, and GCP — currently engineering the next generation platform at Pantheon.</p>
-      <div class="hero-links">
-        <a href="https://linkedin.com/in/sachin-prasad" class="btn btn-primary" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:prasadsachin214@gmail.com" class="btn btn-outline">Get in Touch</a>
-        <a href="https://github.com/pansachin" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
+      <div class="hero-text">
+        <p class="hero-label">Staff Software Engineer</p>
+        <h1>Hi, I'm <span class="gradient">Sachin Prasad</span></h1>
+        <p>I build resilient, scalable platform infrastructure at enterprise scale. 8.5+ years specializing in Go, Kubernetes, and GCP — currently engineering the next generation platform at Pantheon.</p>
+        <div class="hero-links">
+          <a href="https://linkedin.com/in/sachin-prasad" class="btn btn-primary" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:prasadsachin214@gmail.com" class="btn btn-outline">Get in Touch</a>
+          <a href="https://github.com/pansachin" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
+        </div>
       </div>
+      <div class="hero-avatar">SP</div>
     </div>
   </section>
 
   <!-- ABOUT -->
   <section id="about">
-    <div class="container">
+    <div class="container fade-in">
       <h2 class="section-title">About Me</h2>
       <p class="section-subtitle">Platform engineering with a security-first mindset</p>
       <div class="about-text">
@@ -467,7 +531,7 @@
 
   <!-- SKILLS -->
   <section id="skills">
-    <div class="container">
+    <div class="container fade-in">
       <h2 class="section-title">Technical Skills</h2>
       <p class="section-subtitle">Organized by depth of experience</p>
 
@@ -518,7 +582,7 @@
 
   <!-- PROJECTS -->
   <section id="projects">
-    <div class="container">
+    <div class="container fade-in">
       <h2 class="section-title">Projects</h2>
       <p class="section-subtitle">Key platform engineering work</p>
 
@@ -598,7 +662,7 @@
 
   <!-- EXPERIENCE -->
   <section id="experience">
-    <div class="container">
+    <div class="container fade-in">
       <h2 class="section-title">Experience</h2>
       <p class="section-subtitle">Career progression</p>
       <div class="timeline">
@@ -647,21 +711,36 @@
 
   <!-- OPEN SOURCE -->
   <section id="oss">
-    <div class="container">
+    <div class="container fade-in">
       <h2 class="section-title">Open Source</h2>
       <p class="section-subtitle">Community contributions</p>
       <div class="oss-grid">
         <a href="https://github.com/go-swagger/go-swagger" class="oss-card" target="_blank" rel="noopener">
           <h4>go-swagger</h4>
           <p>Swagger 2.0 implementation for Go — code generation, spec validation, and serving.</p>
+          <span class="oss-contrib-type">Bug fixes &amp; features</span>
+          <div class="oss-meta">
+            <span class="oss-stars">&#9733; 9.5k+</span>
+            <span>Go</span>
+          </div>
         </a>
         <a href="https://github.com/ilyakaznacheev/cleanenv" class="oss-card" target="_blank" rel="noopener">
           <h4>cleanenv</h4>
           <p>Minimalist configuration reader for Go — clean, struct-based environment variable parsing.</p>
+          <span class="oss-contrib-type">Feature contributions</span>
+          <div class="oss-meta">
+            <span class="oss-stars">&#9733; 1.6k+</span>
+            <span>Go</span>
+          </div>
         </a>
         <a href="https://github.com/go-playground/webhooks" class="oss-card" target="_blank" rel="noopener">
           <h4>go-playground/webhooks</h4>
           <p>Webhook receiver library for GitHub, GitLab, Bitbucket, and other providers.</p>
+          <span class="oss-contrib-type">Provider support</span>
+          <div class="oss-meta">
+            <span class="oss-stars">&#9733; 950+</span>
+            <span>Go</span>
+          </div>
         </a>
       </div>
     </div>
@@ -669,7 +748,7 @@
 
   <!-- PHILOSOPHY -->
   <section id="philosophy">
-    <div class="container">
+    <div class="container fade-in">
       <h2 class="section-title">Engineering Philosophy</h2>
       <p class="section-subtitle">Principles that guide my work</p>
       <div class="philosophy-grid">
@@ -703,7 +782,7 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="container">
+    <div class="container fade-in">
       <h2 class="section-title">Let's Connect</h2>
       <p class="section-subtitle">Open to conversations about platform engineering, Go, and cloud-native systems</p>
       <div class="contact-links">
@@ -743,6 +822,18 @@
         document.querySelector('.nav-links').classList.remove('open');
       });
     });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
