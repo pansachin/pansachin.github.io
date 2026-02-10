@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sachin Prasad — Staff Software Engineer</title>
+  <meta name="description" content="Portfolio of Sachin Prasad, Staff Software Engineer specializing in Platform Engineering, Go, Kubernetes, and GCP." />
+  <meta name="keywords" content="Sachin Prasad, Staff Engineer, Platform Engineering, Go, Kubernetes, GCP, Backend Engineer" />
+  <meta property="og:title" content="Sachin Prasad — Staff Software Engineer" />
+  <meta property="og:description" content="Staff Platform Engineer with 8.5+ years building resilient, scalable systems at enterprise scale." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pansachin.github.io" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --max-width: 900px;
+      --transition: 0.3s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0d1117;
+      --bg-card: #161b22;
+      --bg-card-hover: #1c2333;
+      --text: #e6edf3;
+      --text-secondary: #8b949e;
+      --accent: #58a6ff;
+      --accent-hover: #79b8ff;
+      --border: #30363d;
+      --tag-bg: #1f2937;
+      --tag-text: #7dd3fc;
+      --gradient-start: #58a6ff;
+      --gradient-end: #a78bfa;
+      --shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --bg-card: #f6f8fa;
+      --bg-card-hover: #eef1f5;
+      --text: #1f2937;
+      --text-secondary: #586069;
+      --accent: #0969da;
+      --accent-hover: #0550ae;
+      --border: #d0d7de;
+      --tag-bg: #dbeafe;
+      --tag-text: #1e40af;
+      --gradient-start: #0969da;
+      --gradient-end: #7c3aed;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--accent-hover); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      transition: background var(--transition), border var(--transition);
+    }
+    nav .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    nav .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    nav .nav-links a {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+    nav .nav-links a:hover { color: var(--accent); }
+    .theme-toggle {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      transition: background var(--transition), border var(--transition);
+    }
+    .theme-toggle:hover { background: var(--bg-card-hover); }
+
+    .hamburger {
+      display: none;
+      background: none; border: none; color: var(--text);
+      font-size: 1.4rem; cursor: pointer; padding: 4px;
+    }
+
+    /* SECTIONS */
+    section { padding: 5rem 1.5rem 3rem; }
+    .container { max-width: var(--max-width); margin: 0 auto; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 4rem;
+    }
+    .hero-content { width: 100%; }
+    .hero-label {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.03em;
+    }
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all var(--transition);
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--accent-hover); color: #fff; }
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* SECTION HEADERS */
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .section-subtitle {
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      font-size: 1rem;
+    }
+
+    /* ABOUT */
+    .about-text { color: var(--text-secondary); font-size: 1.05rem; }
+    .about-text p { margin-bottom: 1rem; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      text-align: center;
+      transition: background var(--transition), border var(--transition);
+    }
+    .stat-card .stat-num {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .stat-card .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+    }
+
+    /* SKILLS */
+    .skills-group { margin-bottom: 2rem; }
+    .skills-group h3 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 0.35rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      font-family: var(--font-mono);
+      transition: background var(--transition);
+    }
+
+    /* PROJECTS */
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+      transition: background var(--transition), border var(--transition), transform 0.2s;
+    }
+    .project-card:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .project-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .project-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      white-space: nowrap;
+    }
+    .project-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .project-impact {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .project-tags .tag { font-size: 0.78rem; padding: 0.25rem 0.65rem; }
+
+    /* EXPERIENCE */
+    .timeline { position: relative; padding-left: 1.75rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item { position: relative; margin-bottom: 2.5rem; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.75rem;
+      top: 0.5rem;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+    }
+    .timeline-item h3 { font-size: 1.1rem; font-weight: 600; }
+    .timeline-item .company {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .timeline-item .period {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-item ul {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+    .timeline-item li {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      margin-bottom: 0.4rem;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .timeline-item li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* OSS */
+    .oss-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .oss-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      transition: background var(--transition), transform 0.2s;
+    }
+    .oss-card:hover { background: var(--bg-card-hover); transform: translateY(-2px); }
+    .oss-card h4 { font-size: 1rem; margin-bottom: 0.35rem; }
+    .oss-card p { color: var(--text-secondary); font-size: 0.88rem; }
+
+    /* PHILOSOPHY */
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .philosophy-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      transition: background var(--transition);
+    }
+    .philosophy-item h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .philosophy-item p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    /* CONTACT */
+    .contact-links {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      .hamburger { display: block; }
+      nav .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        padding: 1rem 1.5rem;
+        gap: 0.75rem;
+      }
+      nav .nav-links.open { display: flex; }
+      .hero h1 { font-size: 2rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      section { padding: 3.5rem 1.25rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <span class="logo">SP</span>
+      <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#oss">Open Source</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9790;</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-content">
+      <p class="hero-label">Staff Software Engineer</p>
+      <h1>Hi, I'm <span class="gradient">Sachin Prasad</span></h1>
+      <p>I build resilient, scalable platform infrastructure at enterprise scale. 8.5+ years specializing in Go, Kubernetes, and GCP — currently engineering the next generation platform at Pantheon.</p>
+      <div class="hero-links">
+        <a href="https://linkedin.com/in/sachin-prasad" class="btn btn-primary" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:prasadsachin214@gmail.com" class="btn btn-outline">Get in Touch</a>
+        <a href="https://github.com/pansachin" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">Platform engineering with a security-first mindset</p>
+      <div class="about-text">
+        <p>I'm a Staff Software Engineer at <strong>Pantheon Platform</strong>, where I lead platform modernization efforts across services that power 100,000+ customer sites. My work spans migrating legacy systems to Go, designing zero-downtime architectures, and building greenfield microservices from scratch.</p>
+        <p>I care deeply about observability, security, and developer experience. I've led projects that range from critical SSL infrastructure redesigns to building Pantheon's Version Control Service from ideation to beta launch. I also invest in mentoring engineers and establishing engineering standards that help teams ship better software, faster.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-num">8.5+</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat-card"><div class="stat-num">100k+</div><div class="stat-label">Sites Protected</div></div>
+        <div class="stat-card"><div class="stat-num">300%</div><div class="stat-label">Perf Improvement</div></div>
+        <div class="stat-card"><div class="stat-num">60%</div><div class="stat-label">COGS Reduced</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-subtitle">Organized by depth of experience</p>
+
+      <div class="skills-group">
+        <h3>Expert — 5+ Years</h3>
+        <div class="tags">
+          <span class="tag">Go</span>
+          <span class="tag">Python</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Microservices</span>
+          <span class="tag">GCP</span>
+          <span class="tag">Cloud Run</span>
+          <span class="tag">GKE</span>
+          <span class="tag">Grafana</span>
+          <span class="tag">Prometheus</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <h3>Advanced — 3-5 Years</h3>
+        <div class="tags">
+          <span class="tag">Terraform</span>
+          <span class="tag">Ansible</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">CircleCI</span>
+          <span class="tag">SSL/TLS</span>
+          <span class="tag">HashiCorp Vault</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Cloud Datastore</span>
+          <span class="tag">DNS</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <h3>Proficient — 1-3 Years</h3>
+        <div class="tags">
+          <span class="tag">Protobuf</span>
+          <span class="tag">OpenAPI</span>
+          <span class="tag">gRPC</span>
+          <span class="tag">REST</span>
+          <span class="tag">PagerDuty</span>
+          <span class="tag">Ruby</span>
+          <span class="tag">Cloud Functions</span>
+          <span class="tag">Cloud SQL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">Key platform engineering work</p>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Version Control Service (VCS)</h3>
+          <span class="project-badge">Ideation → Beta</span>
+        </div>
+        <p>Led end-to-end development of a service enabling customers to connect GitHub, GitLab, and Bitbucket repos to Pantheon. Built on serverless architecture with event-driven webhook processing and idempotent operations.</p>
+        <div class="project-impact">↓ 60% COGS · ↓ 80% support tickets · Improved deployment speed</div>
+        <div class="project-tags">
+          <span class="tag">Go</span><span class="tag">Cloud Functions</span><span class="tag">Cloud Run</span><span class="tag">Cloud SQL</span><span class="tag">Terraform</span><span class="tag">Webhooks</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Legacy Microservices Modernization</h3>
+          <span class="project-badge">Python → Go</span>
+        </div>
+        <p>Architected migration of multiple legacy Python microservices to Go using the strangler pattern. Established standardized service templates, comprehensive testing, and unified observability with zero-downtime canary deployments.</p>
+        <div class="project-impact">↑ 300% performance · Reduced incidents · Faster onboarding</div>
+        <div class="project-tags">
+          <span class="tag">Go</span><span class="tag">Kubernetes</span><span class="tag">GCP</span><span class="tag">Grafana</span><span class="tag">Prometheus</span><span class="tag">GitHub Actions</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>SSL Certificate Security Architecture</h3>
+          <span class="project-badge">100k+ sites</span>
+        </div>
+        <p>Designed and implemented a proxy-based architecture to isolate SSL certificates from customer workloads. Introduced a secure proxy layer, unmounted certs from customer containers, and executed a phased rollout across service levels.</p>
+        <div class="project-impact">Eliminated critical security vulnerability · Zero customer impact</div>
+        <div class="project-tags">
+          <span class="tag">Ruby</span><span class="tag">nginx</span><span class="tag">SSL/TLS</span><span class="tag">runc</span><span class="tag">systemd</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Observability Platform</h3>
+          <span class="project-badge">Cross-service</span>
+        </div>
+        <p>Integrated Grafana and Prometheus across microservices, established SLOs/SLIs, implemented structured logging and distributed tracing, and created runbooks and alerting strategies.</p>
+        <div class="project-impact">Enhanced reliability · Faster debugging · Better incident response</div>
+        <div class="project-tags">
+          <span class="tag">Grafana</span><span class="tag">Prometheus</span><span class="tag">Go</span><span class="tag">SLO/SLI</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>SOC2 Compliance Mail Relay Migration</h3>
+          <span class="project-badge">Compliance</span>
+        </div>
+        <p>Migrated Postfix mail relay infrastructure with encryption at rest. Modernized deployment from Chef to Ansible, coordinated encrypted disk provisioning, and designed a region-based rollout strategy.</p>
+        <div class="project-impact">SOC2 compliance achieved · Zero customer impact</div>
+        <div class="project-tags">
+          <span class="tag">Postfix</span><span class="tag">Ansible</span><span class="tag">SSL/TLS</span><span class="tag">DNS</span><span class="tag">SPF</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>VRT, Screenshot &amp; Microservices Suite</h3>
+          <span class="project-badge">Built from Scratch</span>
+        </div>
+        <p>Designed and built critical platform services — Visual Regression Testing, high-throughput Screenshot Service — each with Kubernetes-native deployment, HPA, CI/CD automation, and API-first design.</p>
+        <div class="project-impact">Automated visual testing for 100k+ sites</div>
+        <div class="project-tags">
+          <span class="tag">Go</span><span class="tag">Kubernetes</span><span class="tag">GCP</span><span class="tag">OpenAPI</span><span class="tag">HPA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <p class="section-subtitle">Career progression</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Staff Software Engineer</h3>
+          <div class="company">Pantheon Platform</div>
+          <div class="period">2023 — Present</div>
+          <ul>
+            <li>Leading 2nd generation platform development</li>
+            <li>Architecting zero-downtime modernization of business-critical services</li>
+            <li>Mentoring engineers and establishing engineering standards</li>
+            <li>Driving cross-functional collaboration and stakeholder alignment</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <h3>Senior Software Engineer</h3>
+          <div class="company">Pantheon Platform</div>
+          <div class="period">2022 — 2023</div>
+          <ul>
+            <li>Led critical SSL security project protecting 100k+ sites</li>
+            <li>Built microservices from scratch (VRT, Screenshot, VCS)</li>
+            <li>Drove Python → Go migration across platform services</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <h3>Software Engineer II</h3>
+          <div class="company">Pantheon Platform</div>
+          <div class="period">2021 — 2022</div>
+          <ul>
+            <li>Contributed to platform infrastructure and observability</li>
+            <li>Implemented IaC with Terraform and Kubernetes</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <h3>Junior → Senior Software Engineer</h3>
+          <div class="company">Zeomega</div>
+          <div class="period">2017 — 2021</div>
+          <ul>
+            <li>Grew from junior to senior engineer over 4 years</li>
+            <li>Built foundational backend engineering skills</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN SOURCE -->
+  <section id="oss">
+    <div class="container">
+      <h2 class="section-title">Open Source</h2>
+      <p class="section-subtitle">Community contributions</p>
+      <div class="oss-grid">
+        <a href="https://github.com/go-swagger/go-swagger" class="oss-card" target="_blank" rel="noopener">
+          <h4>go-swagger</h4>
+          <p>Swagger 2.0 implementation for Go — code generation, spec validation, and serving.</p>
+        </a>
+        <a href="https://github.com/ilyakaznacheev/cleanenv" class="oss-card" target="_blank" rel="noopener">
+          <h4>cleanenv</h4>
+          <p>Minimalist configuration reader for Go — clean, struct-based environment variable parsing.</p>
+        </a>
+        <a href="https://github.com/go-playground/webhooks" class="oss-card" target="_blank" rel="noopener">
+          <h4>go-playground/webhooks</h4>
+          <p>Webhook receiver library for GitHub, GitLab, Bitbucket, and other providers.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section id="philosophy">
+    <div class="container">
+      <h2 class="section-title">Engineering Philosophy</h2>
+      <p class="section-subtitle">Principles that guide my work</p>
+      <div class="philosophy-grid">
+        <div class="philosophy-item">
+          <h4>Security First</h4>
+          <p>Architecture decisions start with security. Protecting 100k+ sites taught me that security is a feature, not an afterthought.</p>
+        </div>
+        <div class="philosophy-item">
+          <h4>Observability as Standard</h4>
+          <p>Every service ships with metrics, logs, traces, and health checks. If you can't observe it, you can't operate it.</p>
+        </div>
+        <div class="philosophy-item">
+          <h4>Progressive Rollouts</h4>
+          <p>Canary deployments, phased rollouts, and feature flags. Minimize blast radius and ship with confidence.</p>
+        </div>
+        <div class="philosophy-item">
+          <h4>Infrastructure as Code</h4>
+          <p>Reproducible, version-controlled infrastructure. If it's not in code, it doesn't exist.</p>
+        </div>
+        <div class="philosophy-item">
+          <h4>Standardize for Velocity</h4>
+          <p>Service templates, shared libraries, and consistent patterns let teams focus on business logic instead of boilerplate.</p>
+        </div>
+        <div class="philosophy-item">
+          <h4>Data-Driven Decisions</h4>
+          <p>SLOs, SLIs, and metrics over gut feelings. Measure impact and let the data tell the story.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="section-subtitle">Open to conversations about platform engineering, Go, and cloud-native systems</p>
+      <div class="contact-links">
+        <a href="mailto:prasadsachin214@gmail.com" class="btn btn-primary">Email Me</a>
+        <a href="https://linkedin.com/in/sachin-prasad" class="btn btn-outline" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/pansachin" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">&copy; 2026 Sachin Prasad. Built with care.</div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent = next === 'dark' ? '\u263E' : '\u2600';
+    }
+
+    // Load saved theme
+    (function() {
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+        document.querySelector('.theme-toggle').textContent = saved === 'dark' ? '\u263E' : '\u2600';
+      }
+    })();
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>
