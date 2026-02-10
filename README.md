@@ -77,7 +77,7 @@ Designed and built several critical platform services: **VRT** (Visual Regressio
 ### GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=pansachin&show_icons=true&theme=default&hide_border=true" alt="GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api?username=pansachin&amp;show_icons=true&amp;theme=default&amp;hide_border=true" alt="GitHub Stats" />
 </p>
 
 ---
